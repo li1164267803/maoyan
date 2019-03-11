@@ -35,6 +35,7 @@ export default {
 .box{
     position: fixed;
     z-index: 66;
+    background: #fff;
     .w(375);
     .bottom(0);
     display: flex;
