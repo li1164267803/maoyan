@@ -7,6 +7,14 @@ import Axios from './axios'
 import VueLazyload from 'vue-lazyload'//懒加载
 import store from '@/store'
 
+// import MintUI from 'mint-ui'
+// import 'mint-ui/lib/style.css'
+// Vue.use(MintUI)
+
+//引入局部的mint-ui
+import { Popup } from 'mint-ui';
+Vue.component(Popup.name, Popup);
+
 Vue.use(VueLazyload,{//懒加载设置项
   loading:require('./assets/logo.png'),
   attempt:1

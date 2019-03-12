@@ -4,8 +4,8 @@
         <div class="tab">
             <div>北京</div>
             <div class="tab-z">
-                <span class="dibian">正在热映</span>
-                <span>即将上映</span>
+                <router-link to="/homere" tag="span" class="dibian">正在热映</router-link>
+                <router-link to="/homeshang" tag="span">即将上映</router-link>
             </div>
             <div class="jing iconfont">&#xe62d;</div>
         </div>
@@ -27,7 +27,7 @@
                             <p>{{item.showInfo}}</p>
                         </div>
                         <div class="button-block">
-                            <span>
+                            <span @touchstart='btn'>
                                 购票
                             </span>
                         </div>
@@ -39,6 +39,7 @@
 
 <script>
 import BScroll from 'better-scroll';
+import { Toast } from 'mint-ui';
 
 export default {
     data() {
@@ -49,6 +50,13 @@ export default {
     },
     props:['xixi'],
     methods: {
+        btn(){
+            Toast({
+                    message: '该功能暂时没有开放',
+                    position: 'center',
+                    duration: 1000
+                });
+        },
         normalData(data){
             for (let index = 0; index < data.length; index++) {
                 // replaceFirst 
@@ -70,7 +78,6 @@ export default {
             this.list = data.movieList;
             this.$nextTick(()=>{
                  let elele = this.$refs.www
-                console.log(elele)
                 new BScroll(elele);
                 
             })
@@ -97,10 +104,11 @@ li{
 }
 .wrapper{
     position: fixed;
-    .top(94);
+    .top(100);
     .bottom(0);
     .w(375);
     overflow: hidden;
+    background: #fff;
 }
 .header{
     background: #e54847;
