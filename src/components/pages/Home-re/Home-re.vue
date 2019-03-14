@@ -65,11 +65,21 @@ export default {
             }
                 console.log(data)
                 this.list = data;
+        },
+        getInfo(){
+            let ajax = new XMLHttpRequest();
+            ajax.open("get",'/maomao')
+            ajax.send();
+            ajax.onload = function(){
+                var obj  = JSON.parse(ajax.responseText);
+                console.log(obj)
+            }
         }
         
     },
     created() {
         console.log('开始请求缓存');
+        //this.getInfo()
         let url = '/xixi/ajax/movieOnInfoList?token='
         this.$axios.get(url)
         .then((data)=>{
@@ -82,6 +92,7 @@ export default {
                 
             })
         })
+
        
     },
     mounted() {

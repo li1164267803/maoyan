@@ -39,7 +39,8 @@
 </template>
 
 <script>
- import BScroll from 'better-scroll'
+import BScroll from 'better-scroll'
+import { Toast } from 'mint-ui';
 
 export default {
     data(){
@@ -60,6 +61,11 @@ export default {
                 new BScroll(elel)
             })
           })
+        Toast({
+                message: '该功能暂未完善',
+                position: 'center',
+                duration: 1000
+            });
 
     },
   methods:{
